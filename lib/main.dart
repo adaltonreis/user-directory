@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:user_directory/blocs/user/user_bloc.dart';
-import 'package:user_directory/repositories/user_repository.dart';
-import 'package:user_directory/routes/app_routes.dart';
-import 'package:user_directory/themes/theme_bloc.dart';
+import 'package:users_directory/blocs/user/user_bloc.dart';
+import 'package:users_directory/repositories/user_repository.dart';
+import 'package:users_directory/routes/app_routes.dart';
+import 'package:users_directory/themes/theme_bloc.dart';
 
 void main() {
   runApp(const UserDirectoryApp());
@@ -17,16 +17,13 @@ class UserDirectoryApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<ThemeBloc>(
-          create: (_) => ThemeBloc(),
-        ),
-        BlocProvider<UserBloc>(
-          create: (_) => UserBloc(UserRepository()),
-        ),
+        BlocProvider<ThemeBloc>(create: (_) => ThemeBloc()),
+        BlocProvider<UserBloc>(create: (_) => UserBloc(UserRepository())),
       ],
       child: BlocBuilder<ThemeBloc, ThemeData>(
         builder: (context, theme) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             title: 'User Directory',
             theme: theme,
             initialRoute: AppRoutes.home,

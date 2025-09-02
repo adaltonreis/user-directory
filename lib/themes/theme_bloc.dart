@@ -26,7 +26,7 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeData> {
     drawerTheme: DrawerThemeData(
       backgroundColor: Colors.grey[50],
     ),
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       elevation: 3,
@@ -45,7 +45,7 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeData> {
     drawerTheme: DrawerThemeData(
       backgroundColor: Colors.grey[850],
     ),
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: Colors.grey[800],
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       elevation: 2,

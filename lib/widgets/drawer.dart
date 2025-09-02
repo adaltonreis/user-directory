@@ -3,11 +3,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:user_directory/blocs/user/user_bloc.dart';
-import 'package:user_directory/blocs/user/user_state.dart';
-import 'package:user_directory/routes/app_routes.dart';
-import 'package:user_directory/themes/theme_bloc.dart';
-import 'package:user_directory/widgets/custom_toogle.dart';
+import 'package:users_directory/blocs/user/user_bloc.dart';
+import 'package:users_directory/blocs/user/user_state.dart';
+import 'package:users_directory/routes/app_routes.dart';
+import 'package:users_directory/themes/theme_bloc.dart';
+import 'package:users_directory/widgets/custom_toogle.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -30,8 +30,9 @@ class AppDrawer extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Theme.of(context).brightness == Brightness.dark
                         ? Colors.blueGrey[800] // dark theme: neutral background
-                        : Theme.of(context)
-                            .primaryColor, // light theme: keep primary
+                        : Theme.of(
+                            context,
+                          ).primaryColor, // light theme: keep primary
                   ),
                   accountName: Text(
                     "${user.firstName} ${user.lastName}",
@@ -65,8 +66,11 @@ class AppDrawer extends StatelessWidget {
                   title: const Text("Profile"),
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.pushNamed(context, AppRoutes.details,
-                        arguments: user);
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.details,
+                      arguments: user,
+                    );
                   },
                 ),
                 ListTile(
@@ -102,10 +106,13 @@ class AppDrawer extends StatelessWidget {
                       SystemNavigator.pop();
                     } else if (Platform.isIOS) {
                       closeDrawer(context);
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text(
-                            "App self-closing is not supported by Apple. Swipe up instead."),
-                      ));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text(
+                            "App self-closing is not supported by Apple. Swipe up instead.",
+                          ),
+                        ),
+                      );
                     }
                   },
                 ),

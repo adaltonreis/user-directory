@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:user_directory/routes/app_routes.dart';
-import 'package:user_directory/screens/detail_sceren/detail_screen.dart';
+import 'package:users_directory/routes/app_routes.dart';
+import 'package:users_directory/screens/detail_sceren/detail_screen.dart';
 import '../../models/user/user.dart';
 
 class UserWidget extends StatelessWidget {
@@ -23,19 +23,13 @@ class UserWidget extends StatelessWidget {
 
   Widget _buildCompact(BuildContext context) {
     return ListTile(
-      leading: CircleAvatar(
-        backgroundImage: NetworkImage(user.avatar),
-      ),
+      leading: CircleAvatar(backgroundImage: NetworkImage(user.avatar)),
       title: Text(user.firstName),
       subtitle: Text(user.email),
       trailing: IconButton(
         icon: const Icon(Icons.arrow_forward),
         onPressed: () {
-          Navigator.pushNamed(
-            context,
-            AppRoutes.details,
-            arguments: user,
-          );
+          Navigator.pushNamed(context, AppRoutes.details, arguments: user);
         },
       ),
     );
@@ -45,18 +39,19 @@ class UserWidget extends StatelessWidget {
     // Example detailed view with the arrow button
     return Row(
       children: [
-        CircleAvatar(
-          backgroundImage: NetworkImage(user.avatar),
-          radius: 30,
-        ),
+        CircleAvatar(backgroundImage: NetworkImage(user.avatar), radius: 30),
         const SizedBox(width: 16),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(user.firstName,
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold)),
+              Text(
+                user.firstName,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               const SizedBox(height: 4),
               Text(user.email),
               // Add more detailed fields if needed
@@ -69,9 +64,7 @@ class UserWidget extends StatelessWidget {
             //Navigator.pop(context);
             Navigator.push(
               context,
-              MaterialPageRoute(
-                builder: (_) => DetailScreen(user: user),
-              ),
+              MaterialPageRoute(builder: (_) => DetailScreen(user: user)),
             );
           },
         ),

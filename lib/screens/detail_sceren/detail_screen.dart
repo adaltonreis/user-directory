@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:user_directory/routes/app_routes.dart';
-import 'package:user_directory/widgets/custom_bottom_bar.dart';
+import 'package:users_directory/routes/app_routes.dart';
+import 'package:users_directory/widgets/custom_bottom_bar.dart';
 import '../../models/user/user.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -85,11 +85,7 @@ class DetailScreen extends StatelessWidget {
                   _buildInfoCard(Icons.person, "ID", user.id.toString()),
                   _buildInfoCard(Icons.settings, "Role", "N/A"),
                   _buildInfoCard(Icons.phone, "Phone", "N/A"),
-                  _buildInfoCard(
-                    Icons.location_on,
-                    "Location",
-                    "N/A",
-                  ),
+                  _buildInfoCard(Icons.location_on, "Location", "N/A"),
                 ],
               ),
             ),
@@ -127,10 +123,7 @@ class DetailScreen extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               value,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-              ),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               textAlign: TextAlign.center,
             ),
           ],

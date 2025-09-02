@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:user_directory/blocs/user/user_bloc.dart';
-import 'package:user_directory/blocs/user/user_event.dart';
-import 'package:user_directory/routes/app_routes.dart';
+import 'package:users_directory/blocs/user/user_bloc.dart';
+import 'package:users_directory/blocs/user/user_event.dart';
+import 'package:users_directory/routes/app_routes.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -44,20 +44,13 @@ class _LoginScreenState extends State<LoginScreen> {
               const Text(
                 'Welcome Back',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 16),
               const Text(
                 'Log in to continue to your account',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                  height: 1.4,
-                ),
+                style: TextStyle(fontSize: 16, color: Colors.grey, height: 1.4),
               ),
               const SizedBox(height: 40),
               TextField(
@@ -115,10 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   backgroundColor: Colors.blueAccent,
                   elevation: 4,
                 ),
-                child: const Text(
-                  'Log In',
-                  style: TextStyle(fontSize: 18),
-                ),
+                child: const Text('Log In', style: TextStyle(fontSize: 18)),
               ),
             ],
           ),

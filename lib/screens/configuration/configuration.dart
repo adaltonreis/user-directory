@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:user_directory/themes/theme_bloc.dart';
-import 'package:user_directory/widgets/custom_toogle.dart';
+import 'package:users_directory/themes/theme_bloc.dart';
+import 'package:users_directory/widgets/custom_toogle.dart';
 
 class ConfigurationScreen extends StatefulWidget {
   const ConfigurationScreen({Key? key}) : super(key: key);
@@ -22,15 +22,15 @@ class _ConfigurationScreenState extends State<ConfigurationScreen> {
   }
 
   void toogleAutoSyncData(BuildContext ctx) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Auto sync Data toogled')),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text('Auto sync Data toogled')));
   }
 
   void toogleNotificationEnabled(BuildContext ctx) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Notification toogled')),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text('Notification toogled')));
   }
 
   @override
@@ -54,19 +54,23 @@ class _ConfigurationScreenState extends State<ConfigurationScreen> {
 
           // Notifications toggle
           CustomToggle(
-              title: "Enable Notifications",
-              onChanged: (_) => toogleNotificationEnabled(context)),
+            title: "Enable Notifications",
+            onChanged: (_) => toogleNotificationEnabled(context),
+          ),
           const Divider(),
 
           // Dark mode toggle
           CustomToggle(
-              title: "Dark Mode", onChanged: (_) => toogleDarkMode(context)),
+            title: "Dark Mode",
+            onChanged: (_) => toogleDarkMode(context),
+          ),
           const Divider(),
 
           // Auto sync toggle
           CustomToggle(
-              title: "Auto Sync Data",
-              onChanged: (_) => toogleAutoSyncData(context)),
+            title: "Auto Sync Data",
+            onChanged: (_) => toogleAutoSyncData(context),
+          ),
 
           const SizedBox(height: 40),
           const Text(
@@ -95,10 +99,7 @@ class _ConfigurationScreenState extends State<ConfigurationScreen> {
           const Divider(),
           ListTile(
             leading: const Icon(Icons.exit_to_app, color: Colors.red),
-            title: const Text(
-              "Logout",
-              style: TextStyle(color: Colors.red),
-            ),
+            title: const Text("Logout", style: TextStyle(color: Colors.red)),
             onTap: () {
               // TODO: implement
             },

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:user_directory/models/user/user.dart';
-import 'package:user_directory/screens/configuration/configuration.dart';
-import 'package:user_directory/screens/detail_sceren/detail_screen.dart';
-import 'package:user_directory/screens/login_screen/login_screen.dart';
+import 'package:users_directory/models/user/user.dart';
+import 'package:users_directory/screens/configuration/configuration.dart';
+import 'package:users_directory/screens/detail_sceren/detail_screen.dart';
+import 'package:users_directory/screens/login_screen/login_screen.dart';
 import '../screens/directory_screen/directory_screen.dart';
 import '../screens/home_screen/home_screen.dart';
 
@@ -33,7 +33,7 @@ class AppRoutes {
 
       default:
         return MaterialPageRoute(
-          builder: (_) => Scaffold(
+          builder: (context) => Scaffold(
             body: SafeArea(
               child: Center(
                 child: Padding(
@@ -65,13 +65,18 @@ class AppRoutes {
                       ElevatedButton.icon(
                         onPressed: () {
                           Navigator.pushNamedAndRemoveUntil(
-                              _, AppRoutes.directory, (route) => false);
+                            context,
+                            AppRoutes.directory,
+                            (route) => false,
+                          );
                         },
                         icon: const Icon(Icons.home),
                         label: const Text('Directoty Screen'),
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 14, horizontal: 24),
+                            vertical: 14,
+                            horizontal: 24,
+                          ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
